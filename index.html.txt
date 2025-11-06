@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGMA AI ANTIANTIVIRUS - الحماية المتقدمة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">Σ</div>
+                    <div class="logo-text">SIGMA AI ANTIANTIVIRUS</div>
+                </div>
+                <div class="system-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="threats-blocked">1,247</div>
+                        <div class="stat-label">تهديدات تم منعها</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="apps-protected">48</div>
+                        <div class="stat-label">تطبيق تحت الحماية</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="ai-accuracy">99.8%</div>
+                        <div class="stat-label">دقة الذكاء الاصطناعي</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- محتوى التطبيق الرئيسي -->
+        <div class="main-dashboard">
+            <div class="protection-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🛡️</div>
+                        <div class="card-title">الحماية الشاملة الفورية</div>
+                    </div>
+                    <div class="status">
+                        <div class="status-indicator"></div>
+                        <div class="status-text">جميع الأنظمة تعمل بمستوى أمثل</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-info">
+                            <span>مستوى الحماية</span>
+                            <span id="protection-level">100%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" id="protection-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <p>النظام يراقب 48 تطبيق و 12 خدمة نظام بشكل مستمر</p>
+                    <button class="btn" onclick="runFullScan()">🔍 فحص نظام كامل</button>
+                </div>
+                
+                <!-- باقي البطاقات -->
+            </div>
+            
+            <!-- لوحة الذكاء الاصطناعي -->
+        </div>
+        
+        <!-- التنبيهات والميزات المتقدمة -->
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>SIGMA AI ANTIANTIVIRUS &copy; 2024 - نظام الحماية المتقدم المدعوم بالذكاء الاصطناعي</p>
+            <p class="security-level">الإصدار 3.0.1 | مستوى الأمان: قصوى | الحالة: نشط ومحمي بالكامل</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

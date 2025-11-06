@@ -1,0 +1,171 @@
+// محاكاة نظام الحماية الحقيقي
+class SigmaAISecurity {
+    constructor() {
+        this.threatsBlocked = 1247;
+        this.appsProtected = 48;
+        this.aiAccuracy = 99.8;
+        this.isScanning = false;
+        this.init();
+    }
+    
+    init() {
+        this.updateStats();
+        this.simulateAIActivity();
+        this.startLiveProtection();
+    }
+    
+    updateStats() {
+        document.getElementById('threats-blocked').textContent = this.threatsBlocked.toLocaleString();
+        document.getElementById('apps-protected').textContent = this.appsProtected;
+        document.getElementById('ai-accuracy').textContent = this.aiAccuracy + '%';
+    }
+    
+    simulateAIActivity() {
+        setInterval(() => {
+            this.threatsBlocked += Math.floor(Math.random() * 3);
+            this.updateStats();
+            
+            const activities = [
+                "جاري تحليل أنماط السلوك المشبوه",
+                "مراقبة حركة الشبكة في الوقت الحقيقي",
+                "تحديث قواعد بيانات التهديدات"
+            ];
+            
+            const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+            this.addAIActivity(randomActivity);
+        }, 5000);
+    }
+    
+    addAIActivity(activity) {
+        const activityContainer = document.getElementById('ai-activity');
+        const activityItem = document.createElement('div');
+        activityItem.className = 'activity-item';
+        activityItem.innerHTML = `
+            <div class="activity-icon">🔍</div>
+            <div>${activity}</div>
+        `;
+        
+        activityContainer.appendChild(activityItem);
+        
+        if (activityContainer.children.length > 4) {
+            activityContainer.removeChild(activityContainer.firstChild);
+        }
+    }
+    
+    startLiveProtection() {
+        setInterval(() => {
+            if (Math.random() < 0.3) {
+                this.threatsBlocked++;
+                this.showThreatAlert();
+                this.updateStats();
+            }
+        }, 10000);
+    }
+    
+    showThreatAlert() {
+        const threats = [
+            "محاولة تصيد إلكتروني",
+            "هجوم من خادم بعيد"
+        ];
+        
+        const randomThreat = threats[Math.floor(Math.random() * threats.length)];
+        this.addSecurityAlert(randomThreat);
+    }
+    
+    addSecurityAlert(threat) {
+        const alertsContainer = document.querySelector('.alerts-panel .card');
+        const alert = document.createElement('div');
+        alert.className = 'alert';
+        alert.innerHTML = `
+            <div class="alert-icon">⚠️</div>
+            <div>
+                <strong>تم كشف تهديد أمني</strong>
+                <p>${threat} - تم الحظر تلقائياً</p>
+            </div>
+        `;
+        
+        alertsContainer.appendChild(alert);
+        
+        setTimeout(() => {
+            if (alert.parentNode) {
+                alert.parentNode.removeChild(alert);
+            }
+        }, 10000);
+    }
+    
+    runFullSystemScan() {
+        if (this.isScanning) return;
+        
+        this.isScanning = true;
+        const progressBar = document.getElementById('protection-progress');
+        const protectionLevel = document.getElementById('protection-level');
+        
+        let progress = 0;
+        const scanInterval = setInterval(() => {
+            progress += 2;
+            progressBar.style.width = progress + '%';
+            protectionLevel.textContent = progress + '%';
+            
+            if (progress >= 100) {
+                clearInterval(scanInterval);
+                this.isScanning = false;
+                this.addSecurityAlert("تم الفحص الكامل - لا توجد تهديدات");
+            }
+        }, 100);
+    }
+    
+    updateAISystem() {
+        const aiProgress = document.getElementById('ai-progress');
+        const aiPower = document.getElementById('ai-power');
+        
+        let progress = 85;
+        const updateInterval = setInterval(() => {
+            progress += 1;
+            aiProgress.style.width = progress + '%';
+            aiPower.textContent = progress + '%';
+            
+            if (progress >= 98) {
+                clearInterval(updateInterval);
+                this.addAIActivity("تم تحديث نظام الذكاء الاصطناعي بنجاح");
+            }
+        }, 200);
+    }
+}
+
+// تهيئة النظام
+const sigmaAI = new SigmaAISecurity();
+
+// وظائف الأزرار
+function runFullScan() {
+    sigmaAI.runFullSystemScan();
+}
+
+function updateAI() {
+    sigmaAI.updateAISystem();
+}
+
+function manageApps() {
+    alert('سيتم فتح لوحة إدارة التطبيقات...');
+}
+
+function networkSettings() {
+    alert('سيتم فتح إعدادات الشبكة المتقدمة...');
+}
+
+function showAIDetails() {
+    alert('عرض التفاصيل الكاملة لنشاط الذكاء الاصطناعي...');
+}
+
+// تأثيرات إضافية
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
